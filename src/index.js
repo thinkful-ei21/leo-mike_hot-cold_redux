@@ -6,6 +6,7 @@ import Game from './components/game';
 
 
 import store from './store';
+console.log(store.getState);
 
 ReactDOM.render(
   <Game />,
