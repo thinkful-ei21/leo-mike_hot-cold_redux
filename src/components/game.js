@@ -49,7 +49,7 @@ export default class Game extends React.Component {
 
     this.setState({
       feedback,
-      guesses: [...this.state.guesses, guess]
+      guesses: [...this.state.guesses, guess].sort((a, b) => a - b)
     });
 
     // We typically wouldn't touch the DOM directly like this in React
