@@ -6,7 +6,11 @@ import Game from './components/game';
 
 
 import store from './store';
-console.log(store.getState);
+import { makeGuess } from './actions';
+import makeGuessReducer from './reducers/makeGuessReducer';
+store.dispatch(makeGuess({guess: 10}));
+
+console.log(store.getState());
 
 ReactDOM.render(
   <Game />,

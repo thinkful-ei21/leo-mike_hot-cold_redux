@@ -13,11 +13,12 @@ const initialState = {
 const makeGuessReducer = (state = initialState, action) => {
   if(action.type === MAKE_GUESS) {
     return ({
-      state
-    });
-  } else {
-    return initialState;
-  }
+      ...state,
+      guesses: [...state.guesses, action.guess]
+    })
+  } 
+
+  return state
 }
 
 export default makeGuessReducer;
