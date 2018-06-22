@@ -10,3 +10,15 @@ export const makeGuess = (guess) => {
     guess
   };
 }
+
+
+export const NEW_GAME = 'NEW_GAME';
+
+// action creator method
+export const newGame = () => {
+  return {
+    type: NEW_GAME
+  };
+}
+
+
