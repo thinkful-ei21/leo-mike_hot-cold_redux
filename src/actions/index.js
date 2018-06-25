@@ -21,4 +21,12 @@ export const newGame = () => {
   };
 }
 
+export const AURAL_UPDATE = 'AURAL_UPDATE';
+
+export const auralUpdate = () => {
+  return {
+    type: AURAL_UPDATE
+  };
+}
+
 
