@@ -11,10 +11,37 @@ const initialState = {
 };
 
 const makeGuessReducer = (state = initialState, action) => {
+
+
   if(action.type === MAKE_GUESS) {
+    let feedback, guess;
+    guess = parseInt(guess, 10);
+    if (isNaN(guess)) {
+       feedback= 'Please enter a valid number' ;
+      return ({
+        ...state
+       , guesses: [...state.guesses, action.guess],
+       feedback
+      });
+    }
+
+    const difference = Math.abs(guess - state.correctAnswer);
+    if (difference >= 50) {
+      feedback = 'You\'re Ice Cold...';
+    } else if (difference >= 30) {
+      feedback = 'You\'re Cold...';
+    } else if (difference >= 10) {
+      feedback = 'You\'re Warm.';
+    } else if (difference >= 1) {
+      feedback = 'You\'re Hot!';
+    } else {
+      feedback = 'You got it!';
+    }
+
     return ({
       ...state
-     , guesses: [...state.guesses, action.guess]
+     , guesses: [...state.guesses, action.guess],
+     feedback
     })
   }
 
