@@ -1,4 +1,4 @@
-import{  MAKE_GUESS, GUESS_OUTPUT, NEW_GAME } from "../actions/index";
+import{  MAKE_GUESS, NEW_GAME } from "../actions/index";
 
 // Job: is to update the state when an action happens.
 // It is managing the state that lives in the store
@@ -14,13 +14,13 @@ const makeGuessReducer = (state = initialState, action) => {
 
 
   if(action.type === MAKE_GUESS) {
-    let feedback, guess;
-    guess = parseInt(guess, 10);
+    let feedback;
+    let guess = parseInt(action.guess, 10);
     if (isNaN(guess)) {
        feedback= 'Please enter a valid number' ;
       return ({
         ...state
-       , guesses: [...state.guesses, action.guess],
+       , guesses: [...state.guesses, guess],
        feedback
       });
     }
